@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://inessg.github.io/sitemap.xml
