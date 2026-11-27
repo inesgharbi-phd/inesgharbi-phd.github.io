@@ -1,0 +1,75 @@
+/* Academic Blue - Light mode */
+
+:root {
+  --global-bg-color: #ffffff;
+  --global-text-color: #333333;
+  --global-theme-color: #2563a0;
+  --global-hover-color: #142b49;
+  --global-hover-text-color: #ffffff;
+  --global-footer-bg-color: #142b49;
+  --global-footer-text-color: #edf4fb;
+  --global-footer-link-color: #ffffff;
+  --global-card-bg-color: #edf4fb;
+  --global-divider-color: #dbe5ef;
+}
+
+/* Academic Blue - Dark mode */
+
+html[data-theme="dark"] {
+  --global-bg-color: #101b2b;
+  --global-text-color: #edf4fb;
+  --global-theme-color: #79b8ff;
+  --global-hover-color: #a8d4ff;
+  --global-hover-text-color: #142b49;
+  --global-footer-bg-color: #0b1422;
+  --global-footer-text-color: #edf4fb;
+  --global-footer-link-color: #ffffff;
+  --global-card-bg-color: #1c3049;
+  --global-divider-color: #304862;
+}
+
+/* Navigation menu */
+
+.navbar {
+  background-color: #142b49 !important;
+  border-bottom: 1px solid #2563a0;
+  opacity: 1;
+}
+
+.navbar .navbar-brand,
+.navbar .navbar-nav .nav-link,
+.navbar #light-toggle,
+.navbar #search-toggle {
+  color: #ffffff !important;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .active > .nav-link {
+  color: #a8d4ff !important;
+}
+
+.navbar-toggler .icon-bar {
+  background-color: #ffffff !important;
+}
+
+/* Buttons */
+
+.btn-primary {
+  background-color: #2563a0 !important;
+  border-color: #2563a0 !important;
+  color: #ffffff !important;
+  border-radius: 6px;
+}
+
+.btn-primary:hover {
+  background-color: #142b49 !important;
+  border-color: #142b49 !important;
+}
+
+/* Cards */
+
+.card {
+  border-radius: 10px;
+  border: 1px solid var(--global-divider-color);
+  background-color: var(--global-card-bg-color);
+}
