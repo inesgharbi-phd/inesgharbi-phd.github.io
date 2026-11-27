@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://inessg.github.io/sitemap.xml
+Sitemap: https://inesgharbi-phd.github.io/sitemap.xml
