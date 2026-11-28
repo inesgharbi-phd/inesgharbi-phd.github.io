@@ -1,0 +1,46 @@
+{% assign current_lang = page.lang | default: 'fr' %}
+{% assign home_url = '/' %}
+{% assign home_label = 'Accueil' %}
+{% if current_lang == 'en' %}
+  {% assign home_url = '/en/' %}
+  {% assign home_label = 'Home' %}
+{% endif %}
+<header>
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" aria-label="Navigation">
+    <div class="container">
+      <a class="navbar-brand title font-weight-lighter" href="{{ home_url | relative_url }}">{{ site.first_name }} {{ site.last_name }}</a>
+      <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Menu">
+        <span class="icon-bar top-bar"></span><span class="icon-bar middle-bar"></span><span class="icon-bar bottom-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav">
+        <ul class="navbar-nav navbar-menu-list flex-nowrap">
+          <li class="nav-item {% if page.permalink == home_url %}active{% endif %}">
+            <a class="nav-link" href="{{ home_url | relative_url }}">{{ home_label }}</a>
+          </li>
+          {% assign sorted_pages = site.pages | sort: 'nav_order' %}
+          {% for p in sorted_pages %}
+            {% assign page_lang = p.lang | default: 'fr' %}
+            {% if p.nav == true and p.autogen == nil and p.permalink != '/' and p.permalink != '/en/' and p.url != '/' and p.url != '/en/' and p.url != '/index.html' and p.url != '/en/index.html' and p.dropdown != true %}
+              {% if page_lang == current_lang %}
+                <li class="nav-item {% if page.url == p.url %}active{% endif %}">
+                  <a class="nav-link" href="{{ p.url | relative_url }}">{{ p.title | escape }}</a>
+                </li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          <li class="nav-item {% if current_lang == 'fr' %}active{% endif %}"><a class="nav-link" href="{{ '/' | relative_url }}" lang="fr" hreflang="fr">FR</a></li>
+          <li class="nav-item {% if current_lang == 'en' %}active{% endif %}"><a class="nav-link" href="{{ '/en/' | relative_url }}" lang="en" hreflang="en">EN</a></li>
+          {% if site.search_enabled %}
+            <li class="nav-item"><button id="search-toggle" type="button" aria-label="Search" style="color: white"><i class="fa-solid fa-magnifying-glass"></i></button></li>
+          {% endif %}
+          {% if site.enable_darkmode %}
+            <li class="toggle-container"><button id="light-toggle" type="button" aria-label="Change color theme" style="color: white"><i class="fa-half-sun-moon" id="light-toggle-system"></i><i class="fa-solid fa-moon" id="light-toggle-dark"></i><i class="fa-solid fa-sun" id="light-toggle-light"></i></button></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% if site.enable_progressbar %}
+    <progress id="progress" value="0"><div class="progress-container"><span class="progress-bar"></span></div></progress>
+  {% endif %}
+</header>
