@@ -3,7 +3,7 @@ layout: about
 title: Accueil
 permalink: /
 lang: fr
-nav: true
+nav: false
 nav_order: 1
 
 subtitle: Docteure en informatique | Université Paris Nanterre
